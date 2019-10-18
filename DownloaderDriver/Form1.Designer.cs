@@ -33,6 +33,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnMakeLocal = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -65,7 +66,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(32, 77);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(615, 21);
+            this.textBox2.Size = new System.Drawing.Size(571, 21);
             this.textBox2.TabIndex = 4;
             // 
             // label2
@@ -77,11 +78,22 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "存储到本地的文件名";
             // 
+            // btnMakeLocal
+            // 
+            this.btnMakeLocal.Location = new System.Drawing.Point(609, 77);
+            this.btnMakeLocal.Name = "btnMakeLocal";
+            this.btnMakeLocal.Size = new System.Drawing.Size(38, 23);
+            this.btnMakeLocal.TabIndex = 5;
+            this.btnMakeLocal.Text = "Auto";
+            this.btnMakeLocal.UseVisualStyleBackColor = true;
+            this.btnMakeLocal.Click += new System.EventHandler(this.btnMakeLocal_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 172);
+            this.Controls.Add(this.btnMakeLocal);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
@@ -101,6 +113,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnMakeLocal;
     }
 }
 

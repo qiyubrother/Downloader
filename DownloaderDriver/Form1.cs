@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,11 @@ namespace DownloaderDriver
             {
                 MessageBox.Show("下载失败！");
             }
+        }
+
+        private void btnMakeLocal_Click(object sender, EventArgs e)
+        {
+            textBox2.Text = FrmDownloader.MakeLocalCacheFileName(FrmDownloader.GetFileNameByUrl(textBox1.Text));
         }
     }
 }

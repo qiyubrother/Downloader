@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -89,6 +90,27 @@ namespace Downloader
         private void btnCopyLocal_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(lblLocal.Text);
+        }
+
+        /// <summary>
+        /// 从网络路径提起文件名
+        /// </summary>
+        /// <param name="url">完整的网络路径，以文件名结尾</param>
+        /// <returns></returns>
+        public static string GetFileNameByUrl(string url)
+        {
+            var weburl = new Uri(url);
+            return weburl.Segments[weburl.Segments.Length - 1];
+        }
+
+        /// <summary>
+        /// 生成一个带路径的文件名，存储在本地缓存
+        /// </summary>
+        /// <param name="fileName">不带路径的纯文件名</param>
+        /// <returns></returns>
+        public static string MakeLocalCacheFileName(string fileName)
+        {
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.InternetCache), fileName);
         }
     }
 
