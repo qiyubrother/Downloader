@@ -25,6 +25,7 @@ namespace Downloader
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
+            Application.DoEvents();
             lblRemote.Text = RemoteUrl;
             lblLocal.Text = LocalFileName;
             Download(lblRemote.Text, lblLocal.Text);
@@ -42,16 +43,6 @@ namespace Downloader
         /// <param name="savePath">另存放的目录</param>
         public bool Download(string uri, string savePath)
         {
-            string fileName;  //被下载的文件名
-            if (uri.IndexOf("\\") > -1)
-            {
-                fileName = uri.Substring(uri.LastIndexOf("\\") + 1);
-            }
-            else
-            {
-                fileName = uri.Substring(uri.LastIndexOf("/") + 1);
-            }
-
             WebClient client = new WebClient();
             try
             {
@@ -68,7 +59,14 @@ namespace Downloader
 
         private void Client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            if (e.Error == null)
+            {
+                DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                DialogResult = DialogResult.Cancel;
+            }
             Close();
         }
 
@@ -79,7 +77,7 @@ namespace Downloader
             //progressBar1.Value = (int)((e.ProgressPercentage / e.TotalBytesToReceive) * 100);
             //progressBar1.Invalidate();
             lblProgressPercentage.Text = e.ProgressPercentage.ToString() + "%";
-            Text = $"Downloading...({e.BytesReceived / 1024}KB / {e.TotalBytesToReceive/1024}KB)";
+            Text = $"Downloading...({e.BytesReceived / 1024}KB / {e.TotalBytesToReceive / 1024}KB)";
         }
 
         private void btnCopyRemote_Click(object sender, EventArgs e)

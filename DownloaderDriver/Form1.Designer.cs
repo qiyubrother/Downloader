@@ -61,6 +61,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(615, 21);
             this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "http://192.168.10.81:8888/http://192.168.10.81:8888/group1/M00/00/2A/wKgKUV1spv6A" +
+    "M7U-BSUojCnC8Lo41.pptx";
             // 
             // textBox2
             // 
@@ -68,6 +70,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(571, 21);
             this.textBox2.TabIndex = 4;
+            this.textBox2.Text = "d:\\ddd.pptx";
             // 
             // label2
             // 
